@@ -1,0 +1,167 @@
+loading data
+Text and image
+image length 13274
+Building prefix dict from the default dictionary ...
+Loading model from cache C:\Users\Purva\AppData\Local\Temp\jieba.cache
+Loading model cost 0.600 seconds.
+Prefix dict has been built successfully.
+Original post length is 5415
+Original data frame is (5415, 6)
+Label number is 5415
+Rummor number is 2898
+Non rummor is 2517
+data size is 5415
+paired post length is 5415
+paried data has 8 dimension
+Original post length is 843
+Original data frame is (843, 6)
+Label number is 843
+Rummor number is 454
+Non rummor is 389
+data size is 843
+paired post length is 843
+paried data has 8 dimension
+Original post length is 1465
+Original data frame is (1465, 6)
+Label number is 1465
+Rummor number is 756
+Non rummor is 709
+data size is 1465
+paired post length is 1465
+paried data has 8 dimension
+loading data...
+number of sentences: 7723
+vocab size: 4626
+max sentence length: 316
+word2vec loaded!
+num words already in word2vec: 4626
+word2vec loaded!
+num words already in word2vec: 4626
+translate data to embedding
+translate test data to embedding
+sequence length 28
+Train Data Size is 5415
+Finished loading data
+TEXT: 5415, Image: 5415, labe: 5415, Event: 5415
+TEXT: 843, Image: 843, labe: 843, Event: 843
+TEXT: 1465, Image: 1465, labe: 1465, Event: 1465
+building model
+CUDA
+loader size 339
+training model
+Epoch [1/100],  Loss: 2.8355, Class Loss: 0.6021, domain loss: 2.2334, Train_Acc: 0.6839,  Validate_Acc: 0.6944.
+Epoch [2/100],  Loss: 2.7355, Class Loss: 0.5053, domain loss: 2.2302, Train_Acc: 0.8006,  Validate_Acc: 0.7332.
+Epoch [3/100],  Loss: 2.6824, Class Loss: 0.4589, domain loss: 2.2234, Train_Acc: 0.8491,  Validate_Acc: 0.6584.
+Epoch [4/100],  Loss: 2.6494, Class Loss: 0.4223, domain loss: 2.2271, Train_Acc: 0.8930,  Validate_Acc: 0.7191.
+Epoch [5/100],  Loss: 2.6254, Class Loss: 0.3987, domain loss: 2.2267, Train_Acc: 0.9169,  Validate_Acc: 0.7309.
+Epoch [6/100],  Loss: 2.6068, Class Loss: 0.3808, domain loss: 2.2260, Train_Acc: 0.9343,  Validate_Acc: 0.7633.
+Epoch [7/100],  Loss: 2.5882, Class Loss: 0.3633, domain loss: 2.2250, Train_Acc: 0.9530,  Validate_Acc: 0.7286.
+Epoch [8/100],  Loss: 2.5813, Class Loss: 0.3550, domain loss: 2.2263, Train_Acc: 0.9622,  Validate_Acc: 0.7598.
+Epoch [9/100],  Loss: 2.5728, Class Loss: 0.3469, domain loss: 2.2260, Train_Acc: 0.9692,  Validate_Acc: 0.7657.
+Epoch [10/100],  Loss: 2.5672, Class Loss: 0.3412, domain loss: 2.2260, Train_Acc: 0.9740,  Validate_Acc: 0.7680.
+Epoch [11/100],  Loss: 2.5679, Class Loss: 0.3413, domain loss: 2.2266, Train_Acc: 0.9720,  Validate_Acc: 0.7616.
+Epoch [12/100],  Loss: 2.5657, Class Loss: 0.3392, domain loss: 2.2266, Train_Acc: 0.9755,  Validate_Acc: 0.7680.
+Epoch [13/100],  Loss: 2.5620, Class Loss: 0.3365, domain loss: 2.2255, Train_Acc: 0.9773,  Validate_Acc: 0.7739.
+Epoch [14/100],  Loss: 2.5554, Class Loss: 0.3296, domain loss: 2.2257, Train_Acc: 0.9849,  Validate_Acc: 0.7739.
+Epoch [15/100],  Loss: 2.5530, Class Loss: 0.3275, domain loss: 2.2255, Train_Acc: 0.9865,  Validate_Acc: 0.7933.
+Epoch [16/100],  Loss: 2.5541, Class Loss: 0.3282, domain loss: 2.2260, Train_Acc: 0.9856,  Validate_Acc: 0.7857.
+Epoch [17/100],  Loss: 2.5555, Class Loss: 0.3290, domain loss: 2.2265, Train_Acc: 0.9851,  Validate_Acc: 0.7668.
+Epoch [18/100],  Loss: 2.5581, Class Loss: 0.3321, domain loss: 2.2260, Train_Acc: 0.9810,  Validate_Acc: 0.7628.
+Epoch [19/100],  Loss: 2.5564, Class Loss: 0.3301, domain loss: 2.2263, Train_Acc: 0.9841,  Validate_Acc: 0.7685.
+Epoch [20/100],  Loss: 2.5563, Class Loss: 0.3303, domain loss: 2.2260, Train_Acc: 0.9830,  Validate_Acc: 0.7669.
+Epoch [21/100],  Loss: 2.5550, Class Loss: 0.3291, domain loss: 2.2260, Train_Acc: 0.9845,  Validate_Acc: 0.7822.
+Epoch [22/100],  Loss: 2.5581, Class Loss: 0.3328, domain loss: 2.2253, Train_Acc: 0.9805,  Validate_Acc: 0.7615.
+Epoch [23/100],  Loss: 2.5686, Class Loss: 0.3419, domain loss: 2.2267, Train_Acc: 0.9705,  Validate_Acc: 0.7586.
+Epoch [24/100],  Loss: 2.5579, Class Loss: 0.3317, domain loss: 2.2262, Train_Acc: 0.9817,  Validate_Acc: 0.7650.
+Epoch [25/100],  Loss: 2.5534, Class Loss: 0.3278, domain loss: 2.2255, Train_Acc: 0.9853,  Validate_Acc: 0.7798.
+Epoch [26/100],  Loss: 2.5533, Class Loss: 0.3274, domain loss: 2.2260, Train_Acc: 0.9858,  Validate_Acc: 0.7627.
+Epoch [27/100],  Loss: 2.5539, Class Loss: 0.3277, domain loss: 2.2262, Train_Acc: 0.9858,  Validate_Acc: 0.7774.
+Epoch [28/100],  Loss: 2.5524, Class Loss: 0.3262, domain loss: 2.2262, Train_Acc: 0.9873,  Validate_Acc: 0.7650.
+Epoch [29/100],  Loss: 2.5537, Class Loss: 0.3274, domain loss: 2.2262, Train_Acc: 0.9867,  Validate_Acc: 0.7721.
+Epoch [30/100],  Loss: 2.5523, Class Loss: 0.3266, domain loss: 2.2257, Train_Acc: 0.9867,  Validate_Acc: 0.7633.
+Epoch [31/100],  Loss: 2.5557, Class Loss: 0.3297, domain loss: 2.2260, Train_Acc: 0.9825,  Validate_Acc: 0.7727.
+Epoch [32/100],  Loss: 2.5588, Class Loss: 0.3327, domain loss: 2.2261, Train_Acc: 0.9805,  Validate_Acc: 0.7774.
+Epoch [33/100],  Loss: 2.5562, Class Loss: 0.3297, domain loss: 2.2265, Train_Acc: 0.9832,  Validate_Acc: 0.7792.
+Epoch [34/100],  Loss: 2.5550, Class Loss: 0.3291, domain loss: 2.2259, Train_Acc: 0.9841,  Validate_Acc: 0.7704.
+Epoch [35/100],  Loss: 2.6273, Class Loss: 0.3438, domain loss: 2.2835, Train_Acc: 0.9683,  Validate_Acc: 0.7745.
+Epoch [36/100],  Loss: 2.5569, Class Loss: 0.3299, domain loss: 2.2269, Train_Acc: 0.9834,  Validate_Acc: 0.7680.
+Epoch [37/100],  Loss: 2.5524, Class Loss: 0.3261, domain loss: 2.2263, Train_Acc: 0.9873,  Validate_Acc: 0.7739.
+Epoch [38/100],  Loss: 2.5513, Class Loss: 0.3248, domain loss: 2.2265, Train_Acc: 0.9887,  Validate_Acc: 0.7709.
+Epoch [39/100],  Loss: 2.5504, Class Loss: 0.3242, domain loss: 2.2262, Train_Acc: 0.9891,  Validate_Acc: 0.7933.
+Epoch [40/100],  Loss: 2.5512, Class Loss: 0.3248, domain loss: 2.2264, Train_Acc: 0.9888,  Validate_Acc: 0.7911.
+Epoch [41/100],  Loss: 2.5601, Class Loss: 0.3344, domain loss: 2.2257, Train_Acc: 0.9782,  Validate_Acc: 0.7703.
+Epoch [42/100],  Loss: 2.5534, Class Loss: 0.3268, domain loss: 2.2266, Train_Acc: 0.9865,  Validate_Acc: 0.7715.
+Epoch [43/100],  Loss: 2.5504, Class Loss: 0.3238, domain loss: 2.2266, Train_Acc: 0.9895,  Validate_Acc: 0.7591.
+Epoch [44/100],  Loss: 2.5595, Class Loss: 0.3333, domain loss: 2.2262, Train_Acc: 0.9799,  Validate_Acc: 0.7674.
+Epoch [45/100],  Loss: 2.5510, Class Loss: 0.3247, domain loss: 2.2263, Train_Acc: 0.9886,  Validate_Acc: 0.7803.
+Epoch [46/100],  Loss: 2.5532, Class Loss: 0.3277, domain loss: 2.2255, Train_Acc: 0.9854,  Validate_Acc: 0.7586.
+Epoch [47/100],  Loss: 2.5514, Class Loss: 0.3256, domain loss: 2.2257, Train_Acc: 0.9878,  Validate_Acc: 0.7480.
+Epoch [48/100],  Loss: 2.5521, Class Loss: 0.3261, domain loss: 2.2260, Train_Acc: 0.9872,  Validate_Acc: 0.7733.
+Epoch [49/100],  Loss: 2.5588, Class Loss: 0.3332, domain loss: 2.2255, Train_Acc: 0.9797,  Validate_Acc: 0.7474.
+Epoch [50/100],  Loss: 2.5521, Class Loss: 0.3266, domain loss: 2.2255, Train_Acc: 0.9865,  Validate_Acc: 0.7709.
+Epoch [51/100],  Loss: 2.5577, Class Loss: 0.3312, domain loss: 2.2265, Train_Acc: 0.9812,  Validate_Acc: 0.7733.
+Epoch [52/100],  Loss: 2.5567, Class Loss: 0.3309, domain loss: 2.2257, Train_Acc: 0.9819,  Validate_Acc: 0.7692.
+Epoch [53/100],  Loss: 2.5549, Class Loss: 0.3287, domain loss: 2.2262, Train_Acc: 0.9840,  Validate_Acc: 0.7333.
+Epoch [54/100],  Loss: 2.5514, Class Loss: 0.3257, domain loss: 2.2257, Train_Acc: 0.9873,  Validate_Acc: 0.7655.
+Epoch [55/100],  Loss: 2.5527, Class Loss: 0.3267, domain loss: 2.2260, Train_Acc: 0.9864,  Validate_Acc: 0.7645.
+Epoch [56/100],  Loss: 2.5512, Class Loss: 0.3252, domain loss: 2.2260, Train_Acc: 0.9876,  Validate_Acc: 0.7657.
+Epoch [57/100],  Loss: 2.5544, Class Loss: 0.3286, domain loss: 2.2257, Train_Acc: 0.9840,  Validate_Acc: 0.7550.
+Epoch [58/100],  Loss: 2.5540, Class Loss: 0.3283, domain loss: 2.2257, Train_Acc: 0.9849,  Validate_Acc: 0.7450.
+Epoch [59/100],  Loss: 2.5550, Class Loss: 0.3290, domain loss: 2.2260, Train_Acc: 0.9840,  Validate_Acc: 0.7745.
+Epoch [60/100],  Loss: 2.5521, Class Loss: 0.3262, domain loss: 2.2260, Train_Acc: 0.9869,  Validate_Acc: 0.7763.
+Epoch [61/100],  Loss: 2.5484, Class Loss: 0.3221, domain loss: 2.2262, Train_Acc: 0.9912,  Validate_Acc: 0.7739.
+Epoch [62/100],  Loss: 2.5482, Class Loss: 0.3220, domain loss: 2.2262, Train_Acc: 0.9913,  Validate_Acc: 0.7810.
+Epoch [63/100],  Loss: 2.5538, Class Loss: 0.3281, domain loss: 2.2257, Train_Acc: 0.9849,  Validate_Acc: 0.7721.
+Epoch [64/100],  Loss: 2.5538, Class Loss: 0.3280, domain loss: 2.2257, Train_Acc: 0.9851,  Validate_Acc: 0.7585.
+Epoch [65/100],  Loss: 2.5599, Class Loss: 0.3335, domain loss: 2.2265, Train_Acc: 0.9797,  Validate_Acc: 0.7637.
+Epoch [66/100],  Loss: 2.5573, Class Loss: 0.3314, domain loss: 2.2260, Train_Acc: 0.9812,  Validate_Acc: 0.7368.
+Epoch [67/100],  Loss: 2.5568, Class Loss: 0.3308, domain loss: 2.2260, Train_Acc: 0.9817,  Validate_Acc: 0.7679.
+Epoch [68/100],  Loss: 2.5541, Class Loss: 0.3281, domain loss: 2.2260, Train_Acc: 0.9849,  Validate_Acc: 0.7680.
+Epoch [69/100],  Loss: 2.5532, Class Loss: 0.3270, domain loss: 2.2262, Train_Acc: 0.9864,  Validate_Acc: 0.7857.
+Epoch [70/100],  Loss: 2.5507, Class Loss: 0.3247, domain loss: 2.2260, Train_Acc: 0.9886,  Validate_Acc: 0.7857.
+Epoch [71/100],  Loss: 2.5510, Class Loss: 0.3248, domain loss: 2.2262, Train_Acc: 0.9884,  Validate_Acc: 0.7704.
+Epoch [72/100],  Loss: 2.5499, Class Loss: 0.3241, domain loss: 2.2257, Train_Acc: 0.9888,  Validate_Acc: 0.7692.
+Epoch [73/100],  Loss: 2.5509, Class Loss: 0.3249, domain loss: 2.2260, Train_Acc: 0.9881,  Validate_Acc: 0.7633.
+Epoch [74/100],  Loss: 2.5484, Class Loss: 0.3222, domain loss: 2.2262, Train_Acc: 0.9910,  Validate_Acc: 0.7810.
+Epoch [75/100],  Loss: 2.5476, Class Loss: 0.3214, domain loss: 2.2262, Train_Acc: 0.9919,  Validate_Acc: 0.7833.
+Epoch [76/100],  Loss: 2.5471, Class Loss: 0.3208, domain loss: 2.2262, Train_Acc: 0.9924,  Validate_Acc: 0.7833.
+Epoch [77/100],  Loss: 2.5474, Class Loss: 0.3209, domain loss: 2.2265, Train_Acc: 0.9924,  Validate_Acc: 0.7266.
+Epoch [78/100],  Loss: 2.5600, Class Loss: 0.3338, domain loss: 2.2262, Train_Acc: 0.9790,  Validate_Acc: 0.7645.
+Epoch [79/100],  Loss: 2.5571, Class Loss: 0.3307, domain loss: 2.2265, Train_Acc: 0.9827,  Validate_Acc: 0.7468.
+Epoch [80/100],  Loss: 2.5567, Class Loss: 0.3305, domain loss: 2.2262, Train_Acc: 0.9825,  Validate_Acc: 0.7704.
+Epoch [81/100],  Loss: 2.5552, Class Loss: 0.3292, domain loss: 2.2260, Train_Acc: 0.9838,  Validate_Acc: 0.7739.
+Epoch [82/100],  Loss: 2.5610, Class Loss: 0.3353, domain loss: 2.2257, Train_Acc: 0.9781,  Validate_Acc: 0.7798.
+Epoch [83/100],  Loss: 2.5548, Class Loss: 0.3288, domain loss: 2.2260, Train_Acc: 0.9843,  Validate_Acc: 0.7714.
+Epoch [84/100],  Loss: 2.5543, Class Loss: 0.3285, domain loss: 2.2257, Train_Acc: 0.9843,  Validate_Acc: 0.7786.
+Epoch [85/100],  Loss: 2.5487, Class Loss: 0.3227, domain loss: 2.2260, Train_Acc: 0.9906,  Validate_Acc: 0.7739.
+Epoch [86/100],  Loss: 2.5531, Class Loss: 0.3274, domain loss: 2.2257, Train_Acc: 0.9849,  Validate_Acc: 0.7615.
+Epoch [87/100],  Loss: 2.5584, Class Loss: 0.3322, domain loss: 2.2262, Train_Acc: 0.9806,  Validate_Acc: 0.7520.
+Epoch [88/100],  Loss: 2.5553, Class Loss: 0.3289, domain loss: 2.2265, Train_Acc: 0.9840,  Validate_Acc: 0.7657.
+Epoch [89/100],  Loss: 2.5483, Class Loss: 0.3228, domain loss: 2.2255, Train_Acc: 0.9902,  Validate_Acc: 0.7509.
+Epoch [90/100],  Loss: 2.5503, Class Loss: 0.3241, domain loss: 2.2262, Train_Acc: 0.9888,  Validate_Acc: 0.7591.
+Epoch [91/100],  Loss: 2.5501, Class Loss: 0.3239, domain loss: 2.2262, Train_Acc: 0.9888,  Validate_Acc: 0.7657.
+Epoch [92/100],  Loss: 2.5481, Class Loss: 0.3216, domain loss: 2.2265, Train_Acc: 0.9915,  Validate_Acc: 0.7598.
+Epoch [93/100],  Loss: 2.5511, Class Loss: 0.3259, domain loss: 2.2253, Train_Acc: 0.9873,  Validate_Acc: 0.7657.
+Epoch [94/100],  Loss: 2.5456, Class Loss: 0.3199, domain loss: 2.2257, Train_Acc: 0.9934,  Validate_Acc: 0.7633.
+Epoch [95/100],  Loss: 2.5510, Class Loss: 0.3255, domain loss: 2.2255, Train_Acc: 0.9875,  Validate_Acc: 0.7762.
+Epoch [96/100],  Loss: 2.5472, Class Loss: 0.3210, domain loss: 2.2262, Train_Acc: 0.9923,  Validate_Acc: 0.7598.
+Epoch [97/100],  Loss: 2.5482, Class Loss: 0.3220, domain loss: 2.2262, Train_Acc: 0.9912,  Validate_Acc: 0.7680.
+Epoch [98/100],  Loss: 2.5544, Class Loss: 0.3284, domain loss: 2.2260, Train_Acc: 0.9846,  Validate_Acc: 0.7578.
+Epoch [99/100],  Loss: 2.5485, Class Loss: 0.3220, domain loss: 2.2265, Train_Acc: 0.9910,  Validate_Acc: 0.7709.
+Epoch [100/100],  Loss: 2.5503, Class Loss: 0.3246, domain loss: 2.2257, Train_Acc: 0.9888,  Validate_Acc: 0.7603.
+testing model
+Classification Acc: 0.7863, AUC-ROC: 0.8796
+Classification report:
+              precision    recall  f1-score   support
+
+           0       0.83      0.70      0.76       709
+           1       0.76      0.86      0.81       756
+
+    accuracy                           0.79      1465
+   macro avg       0.79      0.78      0.78      1465
+weighted avg       0.79      0.79      0.78      1465
+
+
+Classification confusion matrix:
+[[499 210]
+ [103 653]]

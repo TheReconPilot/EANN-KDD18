@@ -500,11 +500,11 @@ def get_top_post(output, label, test_id, top_n = 500):
 
 
 
-def word2vec(post, word_id_map, W):
+def word2vec(post, word_id_map, W, args):
     word_embedding = []
     mask = []
     #length = []
-
+    
     for sentence in post:
         sen_embedding = []
         seq_len = len(sentence) -1
@@ -533,17 +533,17 @@ def load_data(args):
     args.sequence_len = max_len
     print("translate data to embedding")
 
-    word_embedding, mask = word2vec(validate['post_text'], word_idx_map, W)
+    word_embedding, mask = word2vec(validate['post_text'], word_idx_map, W, args)
     validate['post_text'] = word_embedding
     validate['mask'] = mask
 
 
     print("translate test data to embedding")
-    word_embedding, mask = word2vec(test['post_text'], word_idx_map, W)
+    word_embedding, mask = word2vec(test['post_text'], word_idx_map, W, args)
     test['post_text'] = word_embedding
     test['mask']=mask
     #test[-2]= transform(test[-2])
-    word_embedding, mask = word2vec(train['post_text'], word_idx_map, W)
+    word_embedding, mask = word2vec(train['post_text'], word_idx_map, W, args)
     train['post_text'] = word_embedding
     train['mask'] = mask
     print("sequence length " + str(args.sequence_length))
