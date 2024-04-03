@@ -1,5 +1,5 @@
 # encoding=utf-8
-import cPickle as pickle
+import _pickle as pickle
 import random
 from random import *
 import numpy as np
@@ -23,8 +23,8 @@ from gensim.models import Word2Vec
 
 def stopwordslist(filepath = '../Data/weibo/stop_words.txt'):
     stopwords = {}
-    for line in open(filepath, 'r').readlines():
-        line = unicode(line, "utf-8").strip()
+    for line in open(filepath, 'r', encoding="utf-8").readlines():
+        line = line.strip()
         stopwords[line] = 1
     #stopwords = [line.strip() for line in open(filepath, 'r', encoding='utf-8').readlines()]
     return stopwords
@@ -101,7 +101,7 @@ def write_data(flag, image, text_only):
         top_data = []
         for k, f in enumerate(file_list):
 
-            f = open(f, 'rb')
+            f = open(f, 'r', encoding="utf-8")
             if (k + 1) % 2 == 1:
                 label = 0  ### real is 0
             else:
@@ -131,7 +131,7 @@ def write_data(flag, image, text_only):
                     line_data.append(l.lower())
 
                 if (i + 1) % 3 == 0:
-                    l = clean_str_sst(unicode(l, "utf-8"))
+                    l = clean_str_sst(l)
 
                     seg_list = jieba.cut_for_search(l)
                     new_seg_list = []
@@ -220,8 +220,8 @@ def write_data(flag, image, text_only):
 
                 label.append(post.iloc[i]['label'])
 
-        label = np.array(label, dtype=np.int)
-        ordered_event = np.array(ordered_event, dtype=np.int)
+        label = np.array(label, dtype=int)
+        ordered_event = np.array(ordered_event, dtype=int)
 
         print("Label number is " + str(len(label)))
         print("Rummor number is " + str(sum(label)))
@@ -391,7 +391,7 @@ def get_data(text_only):
     #
     word_embedding_path = "../Data/weibo/w2v.pickle"
 
-    w2v = pickle.load(open(word_embedding_path, 'rb'))
+    w2v = pickle.load(open(word_embedding_path, 'rb'), encoding="latin-1")
     # print(temp)
     # #
     print("word2vec loaded!")
@@ -444,84 +444,85 @@ def get_data(text_only):
 
 # if __name__ == "__main__":
 #     image_list = read_image()
-#
-#     train_data = write_data("train", image_list)
-#     valiate_data = write_data("validate", image_list)
-#     test_data = write_data("test", image_list)
-#
+
+#     train_data = write_data("train", image_list, False)
+#     valiate_data = write_data("validate", image_list, False)
+#     test_data = write_data("test", image_list, False)
+
 #     # print("loading data...")
-#     # # w2v_file = '../Data/GoogleNews-vectors-negative300.bin'
-#     vocab, all_text = load_data(train_data, test_data)
+#     w2v_file = '../Data/GoogleNews-vectors-negative300.bin'
+#     vocab, all_text = load_data(train_data, valiate_data, test_data)
 #     #
-#     # # print(str(len(all_text)))
+#     # print(str(len(all_text)))
+    
+#     print("number of sentences: " + str(len(all_text)))
+#     print("vocab size: " + str(len(vocab)))
+#     max_l = len(max(all_text, key=len))
+#     print("max sentence length: " + str(max_l))
+    
 #     #
-#     # print("number of sentences: " + str(len(all_text)))
-#     # print("vocab size: " + str(len(vocab)))
-#     # max_l = len(max(all_text, key=len))
-#     # print("max sentence length: " + str(max_l))
 #     #
+#     word_embedding_path = "../Data/weibo/word_embedding.pickle"
+#     if not os.path.exists(word_embedding_path):
+#         min_count = 1
+#         size = 32
+#         window = 4
+    
+#         w2v = Word2Vec(all_text, min_count=min_count, vector_size=size, window=window)
+    
+#         temp = {}
+#         # for word in w2v.wv.vocab: # Gensim 3.x
+#         for word in w2v.wv.key_to_index:    # Gensim 4.x
+#             temp[word] = w2v.wv.key_to_index[word]
+#         w2v = temp
+#         pickle.dump(w2v, open(word_embedding_path, 'wb+'))
+#     else:
+#         w2v = pickle.load(open(word_embedding_path, 'rb'))
+#     # print(temp)
 #     # #
-#     # #
-#     # word_embedding_path = "../Data/weibo/word_embedding.pickle"
-#     # if not os.path.exists(word_embedding_path):
-#     #     min_count = 1
-#     #     size = 32
-#     #     window = 4
+#     print("word2vec loaded!")
+#     print("num words already in word2vec: " + str(len(w2v)))
+#     # w2v = add_unknown_words(w2v, vocab)
+#     Whole_data = {}
+#     file_path = "../Data/weibo/event_clustering.pickle"
+#     # if not os.path.exists(file_path):
+#     #     data = []
+#     #     for l in train_data["post_text"]:
+#     #         line_data = []
+#     #         for word in l:
+#     #             line_data.append(w2v[word])
+#     #         line_data = np.matrix(line_data)
+#     #         line_data = np.array(np.mean(line_data, 0))[0]
+#     #         data.append(line_data)
 #     #
-#     #     w2v = Word2Vec(all_text, min_count=min_count, size=size, window=window)
+#     #     data = np.array(data)
 #     #
-#     #     temp = {}
-#     #     for word in w2v.wv.vocab:
-#     #         temp[word] = w2v[word]
-#     #     w2v = temp
-#     #     pickle.dump(w2v, open(word_embedding_path, 'wb+'))
+#     #     cluster = AgglomerativeClustering(n_clusters=15, affinity='cosine', linkage='complete')
+#     #     cluster.fit(data)
+#     #     y = np.array(cluster.labels_)
+#     #     pickle.dump(y, open(file_path, 'wb+'))
 #     # else:
-#     #     w2v = pickle.load(open(word_embedding_path, 'rb'))
-#     # # print(temp)
-#     # # #
-#     # print("word2vec loaded!")
-#     # print("num words already in word2vec: " + str(len(w2v)))
-#     # # w2v = add_unknown_words(w2v, vocab)
-#     # Whole_data = {}
-#     # file_path = "../Data/weibo/event_clustering.pickle"
-#     # # if not os.path.exists(file_path):
-#     # #     data = []
-#     # #     for l in train_data["post_text"]:
-#     # #         line_data = []
-#     # #         for word in l:
-#     # #             line_data.append(w2v[word])
-#     # #         line_data = np.matrix(line_data)
-#     # #         line_data = np.array(np.mean(line_data, 0))[0]
-#     # #         data.append(line_data)
-#     # #
-#     # #     data = np.array(data)
-#     # #
-#     # #     cluster = AgglomerativeClustering(n_clusters=15, affinity='cosine', linkage='complete')
-#     # #     cluster.fit(data)
-#     # #     y = np.array(cluster.labels_)
-#     # #     pickle.dump(y, open(file_path, 'wb+'))
-#     # # else:
-#     # # y = pickle.load(open(file_path, 'rb'))
-#     # # print("Event length is " + str(len(y)))
-#     # # center_count = {}
-#     # # for k, i in enumerate(y):
-#     # #     if i not in center_count:
-#     # #         center_count[i] = 1
-#     # #     else:
-#     # #         center_count[i] += 1
-#     # # print(center_count)
-#     # # train_data['event_label'] = y
+#     # y = pickle.load(open(file_path, 'rb'))
+#     # print("Event length is " + str(len(y)))
+#     # center_count = {}
+#     # for k, i in enumerate(y):
+#     #     if i not in center_count:
+#     #         center_count[i] = 1
+#     #     else:
+#     #         center_count[i] += 1
+#     # print(center_count)
+#     # train_data['event_label'] = y
+    
 #     #
-#     # #
-#     # print("word2vec loaded!")
-#     # print("num words already in word2vec: " + str(len(w2v)))
-#     # add_unknown_words(w2v, vocab)
-#     # W, word_idx_map = get_W(w2v)
-#     # # # rand_vecs = {}
-#     # # # add_unknown_words(rand_vecs, vocab)
-#     # W2 = rand_vecs = {}
-#     # pickle.dump([W, W2, word_idx_map, vocab, max_l], open("../Data/weibo/word_embedding.pickle", "wb"))
-#     # print("dataset created!")
+#     print("word2vec loaded!")
+#     print("num words already in word2vec: " + str(len(w2v)))
+#     add_unknown_words(w2v, vocab)
+#     W, word_idx_map = get_W(w2v)
+#     # # rand_vecs = {}
+#     # # add_unknown_words(rand_vecs, vocab)
+#     W2 = rand_vecs = {}
+#     pickle.dump([W, W2, word_idx_map, vocab, max_l], open("../Data/weibo/word_embedding.pickle", "wb"))
+#     print("dataset created!")
 
 
 

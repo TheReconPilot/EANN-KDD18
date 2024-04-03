@@ -1,6 +1,6 @@
 import numpy as np
 import argparse
-import time, os
+import sys, time, os
 # import random
 import process_data_weibo as process_data
 import copy
@@ -47,17 +47,18 @@ class Rumor_Data(Dataset):
 
 class ReverseLayerF(Function):
 
-    #@staticmethod
-    def forward(self, x):
-        self.lambd = args.lambd
+    @staticmethod
+    def forward(ctx, x):
+        # ctx.lambd = args.lambd
+        ctx.save_for_backward(x)
         return x.view_as(x)
 
-    #@staticmethod
+    @staticmethod
     def backward(self, grad_output):
-        return (grad_output * -self.lambd)
+        return (grad_output * -args.lambd)
 
 def grad_reverse(x):
-    return ReverseLayerF()(x)
+    return ReverseLayerF().apply(x)
 
 
 
@@ -95,7 +96,7 @@ class CNN_Fusion(nn.Module):
 
         #IMAGE
         #hidden_size = args.hidden_dim
-        vgg_19 = torchvision.models.vgg19(pretrained=True)
+        vgg_19 = torchvision.models.vgg19(weights=torchvision.models.VGG19_Weights.DEFAULT)
         for param in vgg_19.parameters():
             param.requires_grad = False
         # visual model
@@ -316,9 +317,15 @@ def main(args):
 
             class_outputs, domain_outputs = model(train_text, train_image, train_mask)
 
+            # print(f"{train_labels.type() =}")
+            train_labels = train_labels.long()
+            
             ## Fake or Real loss
             class_loss = criterion(class_outputs, train_labels)
             # Event Loss
+            
+            # print(f"{event_labels.type() =}")
+            event_labels = event_labels.long()
             domain_loss = criterion(domain_outputs, event_labels)
             loss = class_loss + domain_loss
             loss.backward()
@@ -333,10 +340,11 @@ def main(args):
                 _, labels = torch.max(train_labels, 1)
                 accuracy = (labels.squeeze() == argmax.squeeze()).float().mean()
 
-            class_cost_vector.append(class_loss.data[0])
-            domain_cost_vector.append(domain_loss.data[0])
-            cost_vector.append(loss.data[0])
-            acc_vector.append(accuracy.data[0])
+                        
+            class_cost_vector.append(class_loss.data.item())
+            domain_cost_vector.append(domain_loss.data.item())
+            cost_vector.append(loss.data.item())
+            acc_vector.append(accuracy.data.item())
             # if i == 0:
             #     train_score = to_np(class_outputs.squeeze())
             #     train_pred = to_np(argmax.squeeze())
@@ -356,13 +364,16 @@ def main(args):
                 to_var(validate_labels), to_var(event_labels)
             validate_outputs, domain_outputs = model(validate_text, validate_image, validate_mask)
             _, validate_argmax = torch.max(validate_outputs, 1)
+            
+            # print(f"{validate_labels.type() = }")
+            validate_labels = validate_labels.long()
             vali_loss = criterion(validate_outputs, validate_labels)
             #domain_loss = criterion(domain_outputs, event_labels)
                 #_, labels = torch.max(validate_labels, 1)
             validate_accuracy = (validate_labels == validate_argmax.squeeze()).float().mean()
-            vali_cost_vector.append( vali_loss.data[0])
+            vali_cost_vector.append(vali_loss.data.item())
                 #validate_accuracy = (validate_labels == validate_argmax.squeeze()).float().mean()
-            validate_acc_vector_temp.append(validate_accuracy.data[0])
+            validate_acc_vector_temp.append(validate_accuracy.data.item())
         validate_acc = np.mean(validate_acc_vector_temp)
         valid_acc_vector.append(validate_acc)
         model.train()
@@ -435,7 +446,7 @@ def parse_arguments(parser):
     parser.add_argument('testing_file', type=str, metavar='<testing_file>', help='')
     parser.add_argument('output_file', type=str, metavar='<output_file>', help='')
 
-    parse.add_argument('--static', type=bool, default=True, help='')
+    parser.add_argument('--static', type=bool, default=True, help='')
     parser.add_argument('--sequence_length', type=int, default=28, help='')
     parser.add_argument('--class_num', type=int, default=2, help='')
     parser.add_argument('--hidden_dim', type=int, default = 32, help='')
@@ -452,7 +463,7 @@ def parse_arguments(parser):
     #    parser.add_argument('--num_layers', type = int, default = 2, help = '')
     #    parser.add_argument('--num_classes', type = int, default = 10, help = '')
     parser.add_argument('--d_iter', type=int, default=3, help='')
-    parser.add_argument('--batch_size', type=int, default=100, help='')
+    parser.add_argument('--batch_size', type=int, default=16, help='')
     parser.add_argument('--num_epochs', type=int, default=100, help='')
     parser.add_argument('--learning_rate', type=float, default=0.001, help='')
     parser.add_argument('--event_num', type=int, default=10, help='')
