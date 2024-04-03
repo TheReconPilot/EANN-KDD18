@@ -1,5 +1,35 @@
 # EANN-KDD18
 
+EANN: Event Adversarial Neural Networks for Multi-Modal Fake News Detection
+
+Fixed some code to get it in working condition.
+
+## Setup
+
+- Create a virtual environment
+  `python -m venv .venv`
+
+- Install requirements
+  `pip install -r requirements.txt`
+
+  You may need to check PyTorch installation instructions for working with GPU.
+
+- The `src/data` folder has partial data. The README below has the link to the full dataset.
+
+- The `src/EANN.py` file does the training. There are some arguments which control some behaviour.
+
+- I have added the terminal output for a full training run on the full dataset at `src/EANN-Full-Training.txt`
+
+- I have provided a couple of notebooks.
+  - `src/PlotMetrics.ipynb` for plotting accuracy and loss.
+  - `src/EANN-Testing.ipynb` provides some code for testing and visualizing the results.
+
+
+This ends the part added by me.
+Read below for the original README.
+
+---
+
 
 [EANN: Event Adversarial Neural Networks for Multi-Modal Fake News Detection](https://dl.acm.org/citation.cfm?id=3219819.3219903)  
  [Yaqing Wang](http://www.acsu.buffalo.edu/~yaqingwa/),
