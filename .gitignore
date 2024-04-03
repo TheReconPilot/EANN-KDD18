@@ -1,6 +1,12 @@
 .venv/
 __pycache__/
+.ipynb_checkpoints/
 
 full_data/
 partial_data/
-data/
+RESULT/
+Original_RESULT/
+
+
+# Temp files created by me opening them in Notepad++
+*.bak
